@@ -36,12 +36,11 @@ pipeline {
                 dir("$WORKSPACE/azure-vote") {
                     script {
                         docker.withRegistry('', 'dockerhub') {
-                            def image = docker.build(blackdentech/jenkins-course:2023)
+                            def image = docker.build('djtechportfolio/jenkins:2024')
                             image.push()
                         }
                     }
                 }
-                sh(script: 'docker compose up -d')
             }
         }
     }
